@@ -10,3 +10,7 @@
 //         console.log(response);
 //     });
 // };
+
+window.onload = function() {
+    console.log("hi")
+}
