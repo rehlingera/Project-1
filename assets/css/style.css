@@ -22,3 +22,13 @@ h1 {
     background-color:#effd5f!important;
     border-color:#effd5f!important;
 }
+
+.form{
+    color:white;
+}
+
+#zip-input{
+    background:none;
+    border-color: white;
+    color:white;
+}
