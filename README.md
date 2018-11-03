@@ -18,3 +18,28 @@
 <li>ReciPal</li>
 <li>All For Good</li>
 </ul> 
+
+<h4>Possible difficulties</h4>
+<ul>
+<li>What does the login page look like?</li>
+<li>What does the end page look like?</li>
+<li>What does the intervening process look like?</li>
+<li>No shame in scaling back on the API's (narrow the scope if it becomes too difficult)</li>
+</ul>
+
+<h4>The user experience:</h4>
+<ol>
+<li>User opens the app</li>
+<li>A questionnaire begins
+    <ul>
+    <li>Do you want to stay in or go out?</li>
+    <li>Are you hungry?</li>
+    <li>Do you have energy?</li>
+    <li>Do you have work to do?</li>
+    <li>Are you feeling helpful?</li>
+    </ul>
+<li>User is taken to a results page.</li>
+<li>Based on the quesitonnaire answers, the results are displayed.</li>
+<li>User can browse freely, or use filters on the side.</li>
+<li>Clicking on a particular search result will bring up a card with information about that result.</li>
+</ol>
