@@ -5,6 +5,15 @@ var callEdamam = function(searchTerm) {
         method: "GET"
     }).then(function(response) {
         console.log(response);
+        var recipeDiv = $("<div>");
+        recipeDiv.append("<h4>" + response.hits[0].recipe.label + "</h4>");
+        recipeDiv.append("<img style='width:100%' src='" + response.hits[0].recipe.image + "'><ul>");
+        for (i=0;i<response.hits[0].recipe.ingredientLines.length;i++) {
+            recipeDiv.append("<li>" + response.hits[0].recipe.ingredientLines[i] + "</li>")
+        };
+        recipeDiv.append("</ul>");
+        recipeDiv.append("<a href='" + response.hits[0].recipe.url + "'>Go to recipe</a>");
+        $("#aDiv3").append(recipeDiv);
     });
 };
 
@@ -15,6 +24,13 @@ var callGoogleBooks = function(searchTerm) {
         method: "GET"
     }).then(function(response) {
         console.log(response);
+        var bookDiv = $("<div>");
+        bookDiv.append("<h4>" + response.items[0].volumeInfo.title + "</h4>");
+        bookDiv.append("<img style='width:100%' src='" + response.items[0].volumeInfo.imageLinks.thumbnail + "'>")
+        bookDiv.append("<h5>" + response.items[0].volumeInfo.authors[0] + "</h5>");
+        bookDiv.append("<p>" + response.items[0].volumeInfo.description + "</p>");
+        bookDiv.append("<a href='" + response.items[0].volumeInfo.previewLink + "'>Go to preview</a>");
+        $("#aDiv1").append(bookDiv);
     });
 };
 
@@ -25,6 +41,15 @@ var callOMDB = function(searchTerm) {
         method: "GET"
     }).then(function(response) {
         console.log(response);
+        var movieDiv = $("<div>");
+        movieDiv.append("<h4>" + response.Title + "</h4>");
+        movieDiv.append("<img style='width:100%' src='" + response.Poster + "'>");
+        movieDiv.append("<h5>Directed by " + response.Director + "</h5>");
+        movieDiv.append("<h5> Starring " + response.Actors + "</h5>");
+        movieDiv.append("<h5> RT Rating: " + response.Ratings[1].Value + "</h5>");
+        movieDiv.append("<p>" + response.Plot + "</p>");
+        movieDiv.append("<a href='https://www.imdb.com/title/" + response.imdbID + "/'>View on IMDB</a>");
+        $("#aDiv2").append(movieDiv);
     });
 };
 
@@ -41,7 +66,7 @@ var config = {
 
 window.onload = function() {
     console.log("hi")
-    var searchTerm = "chicken";
+    var searchTerm = "winnie the pooh";
     callEdamam(searchTerm);
     callGoogleBooks(searchTerm);
     callOMDB(searchTerm);
