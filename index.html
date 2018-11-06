@@ -23,61 +23,38 @@
                 </div>
             </div>
             
-            <!--Options-->
-            <div class="row">
-                <div class="col-md-12 offset-2 id=optionsDiv">
-                    <button type="button" id="goingOut" class="btn btn-outline-light optionButton" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    Going Out
-                    </button>
-                    <button type="button" id="stayingIn" class="btn btn-outline-light optionButton" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    Staying In
-                    </button>
-                    <button type="button" id="cooking" class="btn btn-outline-light optionButton" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    Cooking
-                    </button>
-                    <button type="button" id= "dining" class="btn btn-outline-light optionButton" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    Dining
-                    </button>
-                    <button type="button" id="drinking" class="btn btn-outline-light optionButton" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    Drinking
-                    </button>
-                    <button type="button" id="reading" class="btn btn-outline-light optionButton" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    Reading
-                    </button>
-                    <button type="button" id="movies" class="btn btn-outline-light optionButton" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    Movies
-                    </button>
-                    <button type="button" id="working" class="btn btn-outline-light optionButton" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    Working
-                    </button>
-                </div>   
-            </div>
-            <br>
+            <!--Search Input-->
             <div class="form">
-                    <center><label for="name-input">Your Zip Code</label></center>
-                    <input class="form-control" id="zip-input" type="text">
+                    <center><label for="name-input">What're you interested in?</label></center>
+                    <input class="form-control" id="input" type="text">
                   </div>
             <br>
+            <!--Recently Searched-->
+            <div class="row">
+                <div class="col-md-12" id="recentlySearched">
+                    
+                </div>
+            </div>
             <!--Activities-->
             <div class="row">
                 <div class="col-md-4 activitiesDiv" id="aDiv1">
                     <div class="card shadow p-3 mb-5 rounded">
                         <div class="card-body">
-                                <center>Activities here</center>
+                                <center><img src="assets/images/outline_import_contacts_black_18dp.png" alt="books"></center>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 activitiesDiv" id="aDiv2">
                         <div class="card shadow p-3 mb-5 rounded">
                                 <div class="card-body">
-                                        <center>Activities here</center>
+                                        <center><img src="assets/images/outline_theaters_black_18dp.png" alt="movies"></center>
                                 </div>
                             </div>
                 </div>
                 <div class="col-md-4 activitiesDiv"id="aDiv2">
                         <div class="card shadow p-3 mb-5 rounded">
                                 <div class="card-body">
-                                    <center>Activities here</center>
+                                        <center><img src="assets/images/outline_restaurant_black_18dp.png" alt="cooking"></center>
                                 </div>
                             </div>
                 </div>
@@ -85,10 +62,10 @@
 
             <!--Reset-->
             <div class="row">
-                <div class="col-md-12">
-                        <button type="button" id="reset" class="btn btn-outline-light btn-block" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <div class="col-md-4 offset-4">
+                       <center><button type="button" id="reset" class="btn btn-outline-light" data-toggle="button" aria-pressed="false" autocomplete="off">
                             Reset
-                        </button>
+                        </button></center>
                 </div>
             </div>
 
