@@ -12,4 +12,13 @@ var config = {
   var database = firebase.database();
 
   $("#searchButton").on("click", function(){
-    
+    event.preventDefault();
+    var searchInput = $("#searchInput").val().trim();
+    var submission = {termSearched: searchInput};
+    database.ref("/recentlySearched").push(submission);
+    $("#searchInput").val("");
+  });
+
+  database.ref("/recentlySearched").on("child_added", function(snapshot){
+    $("#recentlySearched").append("<button type='button' class='btn btn-outline-light recentlySearchedButton' data-toggle='button' aria-pressed='false' autocomplete='off'>"+snapshot.val().termSearched+"</button>");
+  });
