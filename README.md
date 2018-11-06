@@ -14,9 +14,7 @@
 <li>OMDB</li>
 <li>Rotten Tomatoes</li>
 <li>WorkFrom</li>
-<li>Zomato</li>
 <li>ReciPal</li>
-<li>All For Good</li>
 </ul> 
 
 <h4>Possible difficulties</h4>

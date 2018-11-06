@@ -1,0 +1,10 @@
+User story 1: as a user, I want a homepage to navigate to so that I can experience boreDOM.
+	1. Multiple selectable options to filter possible activities
+	2. Display for possible activities that show organize activities by category
+	3. Reset button to clear activities and redisplay filter options
+	4. External links displayed for each activity
+	
+User story 2: as a developer, I want to make multiple AJAX calls so that I can pull multiple APIs on to our site to interact with.
+	1. Obtain all relevant API keys
+	2. Create all AJAX calls in jQuery and assign variables
+	3. Create logic to tie jQuery to HTML
