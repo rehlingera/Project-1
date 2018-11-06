@@ -11,5 +11,5 @@ var config = {
 
   var database = firebase.database();
 
-  $(".optionData").on("click", function(){
+  $("#searchButton").on("click", function(){
     
