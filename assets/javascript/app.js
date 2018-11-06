@@ -28,6 +28,7 @@ var callOMDB = function(searchTerm) {
     });
 };
 
+<<<<<<< Updated upstream
 window.onload = function() {
     var searchTerm = "chicken";
     callEdamam(searchTerm);
@@ -39,6 +40,8 @@ window.onload = function() {
 
     // }
 }
+=======
+>>>>>>> Stashed changes
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyDXclTHqVBqmQAdPjPO2YR_hQQ-TgmGs5c",
@@ -50,6 +53,7 @@ var config = {
   };
   firebase.initializeApp(config);
 
+<<<<<<< Updated upstream
 //GOOGLE BOOKS API
 // var book = "Harry Potter";
 // var searchGoogleBooks = function(book) {
@@ -62,6 +66,12 @@ var config = {
 //     });
 // };
 
+=======
+>>>>>>> Stashed changes
 window.onload = function() {
     console.log("hi")
+    var searchTerm = "chicken";
+    callEdamam(searchTerm);
+    callGoogleBooks(searchTerm);
+    callOMDB(searchTerm);
 }
