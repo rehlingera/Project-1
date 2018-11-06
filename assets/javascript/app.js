@@ -9,14 +9,13 @@ var callEdamam = function(searchTerm) {
 };
 
 var callGoogleBooks = function(searchTerm) {
-    var queryURL = "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=key=AIzaSyCfJC4DVJaXH1QV7tBi_cCy-0L_HM64o70";
+    var queryURL = "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=AIzaSyAr0_LkySyKDBgp1lJhABUZ8tUaoD5wyac";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
         console.log(response);
     });
-    // key=AIzaSyCfJC4DVJaXH1QV7tBi_cCy-0L_HM64o70
 };
 
 var callOMDB = function(searchTerm) {
