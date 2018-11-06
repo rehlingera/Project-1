@@ -1,12 +1,15 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDXclTHqVBqmQAdPjPO2YR_hQQ-TgmGs5c",
+    authDomain: "gitgangproject.firebaseapp.com",
+    databaseURL: "https://gitgangproject.firebaseio.com",
+    projectId: "gitgangproject",
+    storageBucket: "gitgangproject.appspot.com",
+    messagingSenderId: "386712509161"
+  };
+  firebase.initializeApp(config);
 
-//GOOGLE BOOKS API
-// var book = "Harry Potter";
-// var searchGoogleBooks = function(book) {
-//     var queryURL = "https://www.googleapis.com/books/v1/volumes?q=" + book;
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     }).then(function(response) {
-//         console.log(response);
-//     });
-// };
+  var database = firebase.database();
+
+  $("#searchButton").on("click", function(){
+    
