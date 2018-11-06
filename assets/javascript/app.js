@@ -1,5 +1,5 @@
 var callEdamam = function(searchTerm) {
-    var queryURL = "https://api.edamam.com/search?q=" + searchTerm + "&app_id=$9337f61e&app_key=$cfaff60bede4f57a26d84e860a2b3048&from=0&to=1";
+    var queryURL = "https://api.edamam.com/search?q=" + searchTerm + "&app_id=9337f61e&app_key=cfaff60bede4f57a26d84e860a2b3048&from=0&to=1";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -9,7 +9,7 @@ var callEdamam = function(searchTerm) {
 };
 
 var callGoogleBooks = function(searchTerm) {
-    var queryURL = "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=AIzaSyAr0_LkySyKDBgp1lJhABUZ8tUaoD5wyac";
+    var queryURL = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm + "&key=AIzaSyAr0_LkySyKDBgp1lJhABUZ8tUaoD5wyac";
     $.ajax({
         url: queryURL,
         method: "GET"
