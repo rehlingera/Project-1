@@ -1,27 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
+
 <head>
 
     <meta charset="UTF-8">
     <title>boreDOM</title>
     <!--External CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="assets/javascript/app.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
             crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
 </head>
+
 <body>
+
+    <!--Body-->
     <div class="container">
-        <div class="row">
-            <div class="col-md-11">
-                &nbsp;
+            <!--Header-->
+            <div class="row">
+                <div class="col-md-4 offset-9">
+                    <h1>boreDOM</h1>
+                </div>
             </div>
-            <div class="col-md-1">
-                
+            
+            <!--Search Input-->
+            <div class="form">
+                    <center><label for="searchInput">What're you interested in?</label></center>
+                    <input class="form-control" id="searchInput" type="text">
+                  </div>
+            <br>
+            <!--Search Button-->
+            <div class="row">
+                        <div class="col-md-4 offset-4">
+                               <center><button type="button" id="searchButton" class="btn btn-outline-light" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                    Search
+                                </button></center>
+                        </div>
             </div>
-        </div>
+            
+            <!--Recently Searched-->
+            <div class="row">
+                <div class="col-md-12" id="recentlySearched">
+
+                </div>
+            </div>
+            <br>
+            <!--Activities-->
+            <div class="row">
+                <div class="col-md-4 activitiesDiv" id="aDiv1">
+                    <div class="card shadow p-3 mb-5 rounded">
+                        <div class="card-body">
+                                <center><img src="assets/images/outline_import_contacts_black_18dp.png" alt="books"></center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 activitiesDiv" id="aDiv2">
+                        <div class="card shadow p-3 mb-5 rounded">
+                                <div class="card-body">
+                                        <center><img src="assets/images/outline_theaters_black_18dp.png" alt="movies"></center>
+                                </div>
+                            </div>
+                </div>
+                <div class="col-md-4 activitiesDiv"id="aDiv2">
+                        <div class="card shadow p-3 mb-5 rounded">
+                                <div class="card-body">
+                                        <center><img src="assets/images/outline_restaurant_black_18dp.png" alt="cooking"></center>
+                                </div>
+                            </div>
+                </div>
+            </div>
+
+            <!--Reset-->
+            <div class="row">
+                <div class="col-md-4 offset-4">
+                       <center><button type="button" id="resetButton" class="btn btn-outline-light" data-toggle="button" aria-pressed="false" autocomplete="off">
+                            Reset
+                        </button></center>
+                </div>
+            </div>
+
+
     </div>
 </body>
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--FireBase-->
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<!-- External Script -->
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 </html>
