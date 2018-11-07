@@ -46,7 +46,7 @@ var callOMDB = function(searchTerm) {
         movieDiv.append("<img style='width:100%' src='" + response.Poster + "'>");
         movieDiv.append("<h5>Directed by " + response.Director + "</h5>");
         movieDiv.append("<h5> Starring " + response.Actors + "</h5>");
-        movieDiv.append("<h5> RT Rating: " + response.Ratings[1].Value + "</h5>");
+        movieDiv.append("<h5> RT Rating: " + response.Ratings[0].Value + "</h5>");
         movieDiv.append("<p>" + response.Plot + "</p>");
         movieDiv.append("<a href='https://www.imdb.com/title/" + response.imdbID + "/'>View on IMDB</a>");
         $("#aDiv2").append(movieDiv);
@@ -65,9 +65,19 @@ var config = {
   firebase.initializeApp(config);
 
 window.onload = function() {
-    console.log("hi")
-    var searchTerm = "winnie the pooh";
-    callEdamam(searchTerm);
-    callGoogleBooks(searchTerm);
-    callOMDB(searchTerm);
+    $("#searchButton").on("click", function() {
+        var searchTerm = $("#searchInput").val().trim();
+        console.log("hi")
+        callEdamam(searchTerm);
+        callGoogleBooks(searchTerm);
+        callOMDB(searchTerm);
+    });
+    $("#resetButton").on("click", function() {
+        $("#aDiv1").empty();
+        $("#aDiv1").append("<center><img src='assets/images/outline_import_contacts_black_18dp.png' alt='books'></center></div>");
+        $("#aDiv2").empty();
+        $("#aDiv2").append("<center><img src='assets/images/outline_theaters_black_18dp.png' alt='movies'></center></div>");
+        $("#aDiv3").empty();
+        $("#aDiv3").append("<center><img src='assets/images/outline_restaurant_black_18dp.png' alt='cooking'></center></div>");
+    });
 }
