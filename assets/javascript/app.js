@@ -62,16 +62,26 @@ var config = {
     storageBucket: "gitgangproject.appspot.com",
     messagingSenderId: "386712509161"
   };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
+var database = firebase.database();
 
 window.onload = function() {
     $("#searchButton").on("click", function() {
+        event.preventDefault();
         var searchTerm = $("#searchInput").val().trim();
         console.log("hi")
         callEdamam(searchTerm);
         callGoogleBooks(searchTerm);
         callOMDB(searchTerm);
+        var submission = {termSearched: searchTerm};
+        database.ref("/recentlySearched").push(submission);
     });
+
+    //Renders buttons based on recentlySearch data
+    database.ref("/recentlySearched").on("child_added", function(snapshot){
+    $("#recentlySearched").append("<button type='button' class='btn btn-outline-light recentlySearchedButton' data-toggle='button' aria-pressed='false' autocomplete='off'>"+snapshot.val().termSearched+"</button>");
+    });
+
     $("#resetButton").on("click", function() {
         $("#aDiv1").empty();
         $("#aDiv1").append("<center><img src='assets/images/outline_import_contacts_black_18dp.png' alt='books'></center></div>");
