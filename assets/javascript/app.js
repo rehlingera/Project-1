@@ -90,7 +90,18 @@ window.onload = function() {
         callGoogleBooks(searchTerm);
         callOMDB(searchTerm);
         var submission = {termSearched: searchTerm};
-        database.ref("/recentlySearched").push(submission);
+
+        //Check searchTerm against an array of old searches. If it's a new search, push the searchTerm into the database.
+        if(oldSearches.includes(searchTerm)===false) {
+            database.ref("/recentlySearched").push(submission);
+        };
+    });
+    var oldSearches = [];
+    //Renders buttons based on recentlySearch data
+    database.ref("/recentlySearched").on("child_added", function(snapshot){
+        $("#recentlySearched").append("<button type='button' class='btn btn-outline-light recentlySearchedButton' data-toggle='button' aria-pressed='false' autocomplete='off'>"+snapshot.val().termSearched+"</button>");
+        //Push all the old searches from Firebase into the oldSearches array (to be check against during a search).
+        oldSearches.push(snapshot.val().termSearched);
     });
 
     //Renders buttons based on recentlySearch data
