@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <title>boreDOM</title>
     <!--External CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
             crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     
 </head>
 
@@ -48,24 +48,47 @@
             <br>
             <!--Activities-->
             <div class="row">
-                <div class="col-md-4 activitiesDiv">
-                    <div class="card shadow p-3 mb-5 rounded">
-                        <div class="card-body" id="aDiv1">
+                <div class="col-md-4">
+                    <img src='assets/images/baseline_replay_black_18dp.png' id='bookRefresh' style='width:10%; margin:0% 45% 0% 45%'>
+                </div>
+                <div class="col-md-4">
+                    <img src='assets/images/baseline_replay_black_18dp.png' id='movieRefresh' style='width:10%; margin:0% 45% 0% 45%'>
+                </div>
+                <div class="col-md-4">
+                    <img src='assets/images/baseline_replay_black_18dp.png' id='recipeRefresh' style='width:10%; margin:0% 45% 0% 45%'>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 activitiesDiv" id="bookCard">
+                    <div class="card shadow p-3 mb-5 rounded front">
+                        <div id="aDiv1">
                             <center><img src="assets/images/outline_import_contacts_black_18dp.png" alt="books"></center>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 activitiesDiv">
-                    <div class="card shadow p-3 mb-5 rounded">
-                        <div class="card-body" id="aDiv2">
-                            <center><img src="assets/images/outline_theaters_black_18dp.png" alt="movies"></center>
+                    <div class="card shadow p-3 mb-5 rounded back">
+                        <div id="aDiv1b">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 activitiesDiv">
-                    <div class="card shadow p-3 mb-5 rounded">
-                        <div class="card-body" id="aDiv3">
+                <div class="col-md-4 activitiesDiv" id="movieCard">
+                    <div class="card shadow p-3 mb-5 rounded front">
+                        <div id="aDiv2">
+                            <center><img src="assets/images/outline_theaters_black_18dp.png" alt="movies"></center>
+                        </div>
+                    </div>
+                    <div class="card shadow p-3 mb-5 rounded back">
+                        <div id="aDiv2b">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 activitiesDiv" id="recipeCard">
+                    <div class="card shadow p-3 mb-5 rounded front">
+                        <div id="aDiv3">
                             <center><img src="assets/images/outline_restaurant_black_18dp.png" alt="cooking"></center>
+                        </div>
+                    </div>
+                    <div class="card shadow p-3 mb-5 rounded back">
+                        <div id="aDiv3b">
                         </div>
                     </div>
                 </div>
@@ -85,6 +108,7 @@
 </body>
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 <!--FireBase-->
 <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
 <!-- External Script -->
