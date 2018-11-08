@@ -21,6 +21,7 @@ h1 {
 .card{
     background-color:#C0C4FF!important;
     border-color:#C0C4FF!important;
+    height: auto!important;
 }
 
 .form{
@@ -29,4 +30,8 @@ h1 {
 
 .recentlySearchedButton {
     margin: 3px;
+}
+
+.front {
+    width: 95%!important;
 }
