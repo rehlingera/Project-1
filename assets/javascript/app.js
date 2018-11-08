@@ -87,7 +87,20 @@ window.onload = function() {
         callEdamam(searchTerm);
         callGoogleBooks(searchTerm);
         callOMDB(searchTerm);
+        var submission = {termSearched: searchTerm};
+        //Check searchTerm against an array of old searches. If it's a new search, push the searchTerm into the database.
+        if(oldSearches.includes(searchTerm)===false) {
+            database.ref("/recentlySearched").push(submission);
+        };
     });
+    var oldSearches = [];
+    //Renders buttons based on recentlySearch data
+    database.ref("/recentlySearched").on("child_added", function(snapshot){
+        $("#recentlySearched").append("<button type='button' class='btn btn-outline-light recentlySearchedButton' data-toggle='button' aria-pressed='false' autocomplete='off'>"+snapshot.val().termSearched+"</button>");
+        //Push all the old searches from Firebase into the oldSearches array (to be check against during a search).
+        oldSearches.push(snapshot.val().termSearched);
+    });
+
     $("#resetButton").on("click", function() {
         $("#aDiv1").empty();
         $("#aDiv1").append("<center><img src='assets/images/outline_import_contacts_black_18dp.png' alt='books'></center></div>");
