@@ -1,14 +1,14 @@
-var callEdamam = function(searchTerm) {
+var callEdamam = function (searchTerm) {
     var queryURL = "https://api.edamam.com/search?q=" + searchTerm + "&app_id=9337f61e&app_key=cfaff60bede4f57a26d84e860a2b3048&from=0&to=1";
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         console.log(response);
         var recipeDiv = $("<div>");
         recipeDiv.append("<h4>" + response.hits[0].recipe.label + "</h4>");
         recipeDiv.append("<img style='width:100%' src='" + response.hits[0].recipe.image + "'><ul>");
-        for (i=0;i<response.hits[0].recipe.ingredientLines.length;i++) {
+        for (i = 0; i < response.hits[0].recipe.ingredientLines.length; i++) {
             recipeDiv.append("<li>" + response.hits[0].recipe.ingredientLines[i] + "</li>")
         };
         recipeDiv.append("</ul>");
@@ -17,12 +17,12 @@ var callEdamam = function(searchTerm) {
     });
 };
 
-var callGoogleBooks = function(searchTerm) {
+var callGoogleBooks = function (searchTerm) {
     var queryURL = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm + "&key=AIzaSyAr0_LkySyKDBgp1lJhABUZ8tUaoD5wyac";
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         console.log(response);
         var bookDiv = $("<div>");
         bookDiv.append("<h4>" + response.items[0].volumeInfo.title + "</h4>");
@@ -34,12 +34,12 @@ var callGoogleBooks = function(searchTerm) {
     });
 };
 
-var callOMDB = function(searchTerm) {
+var callOMDB = function (searchTerm) {
     var queryURL = "http://www.omdbapi.com/?apikey=9addc862&t=" + searchTerm + "&plot=full";
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         console.log(response);
         var movieDiv = $("<div>");
         movieDiv.append("<h4>" + response.Title + "</h4>");
@@ -61,33 +61,47 @@ var config = {
     projectId: "gitgangproject",
     storageBucket: "gitgangproject.appspot.com",
     messagingSenderId: "386712509161"
-  };
+};
 firebase.initializeApp(config);
 var database = firebase.database();
 
-window.onload = function() {
-    $("#searchButton").on("click", function() {
+window.onload = function () {
+    $("#searchButton").on("click", function () {
         event.preventDefault();
         var searchTerm = $("#searchInput").val().trim();
         console.log("hi")
         callEdamam(searchTerm);
         callGoogleBooks(searchTerm);
         callOMDB(searchTerm);
-        var submission = {termSearched: searchTerm};
+        var submission = { termSearched: searchTerm };
         database.ref("/recentlySearched").push(submission);
     });
 
-    //Renders buttons based on recentlySearch data
-    database.ref("/recentlySearched").on("child_added", function(snapshot){
-    $("#recentlySearched").append("<button type='button' class='btn btn-outline-light recentlySearchedButton' data-toggle='button' aria-pressed='false' autocomplete='off'>"+snapshot.val().termSearched+"</button>");
-    });
 
-    $("#resetButton").on("click", function() {
-        $("#aDiv1").empty();
-        $("#aDiv1").append("<center><img src='assets/images/outline_import_contacts_black_18dp.png' alt='books'></center></div>");
-        $("#aDiv2").empty();
-        $("#aDiv2").append("<center><img src='assets/images/outline_theaters_black_18dp.png' alt='movies'></center></div>");
-        $("#aDiv3").empty();
-        $("#aDiv3").append("<center><img src='assets/images/outline_restaurant_black_18dp.png' alt='cooking'></center></div>");
-    });
-}
+        database.ref("/recentlySearched").on("child_added", function (snapshot) {
+            $("#recentlySearched").append("<button type='button' class='btn btn-outline-light recentlySearchedButton' data-toggle='button' aria-pressed='false' autocomplete='off'>" + snapshot.val().termSearched + "</button>");
+            $(".recentlySearchedButton").attr("id", snapshot.val().termSearched);
+        });
+
+
+        $(document).on("click", ".recentlySearchedButton", function(){
+            console.log("hi!")
+            searchTerm = $(this).id;
+            callEdamam(searchTerm);
+            callGoogleBooks(searchTerm);
+            callOMDB(searchTerm);
+            var submission = { termSearched: searchTerm };
+            database.ref("/recentlySearched").push(submission);
+        });
+
+
+
+        $("#resetButton").on("click", function () {
+            $("#aDiv1").empty();
+            $("#aDiv1").append("<center><img src='assets/images/outline_import_contacts_black_18dp.png' alt='books'></center></div>");
+            $("#aDiv2").empty();
+            $("#aDiv2").append("<center><img src='assets/images/outline_theaters_black_18dp.png' alt='movies'></center></div>");
+            $("#aDiv3").empty();
+            $("#aDiv3").append("<center><img src='assets/images/outline_restaurant_black_18dp.png' alt='cooking'></center></div>");
+        });
+    }
