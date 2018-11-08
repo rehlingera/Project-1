@@ -5,6 +5,7 @@ var callEdamam = function(searchTerm) {
         method: "GET"
     }).then(function(response) {
         console.log(response);
+        $("#aDiv3").empty();
         var recipeDiv = $("<div>");
         recipeDiv.append("<h4>" + response.hits[0].recipe.label + "</h4>");
         recipeDiv.append("<img style='width:100%' src='" + response.hits[0].recipe.image + "'><ul>");
@@ -24,6 +25,7 @@ var callGoogleBooks = function(searchTerm) {
         method: "GET"
     }).then(function(response) {
         console.log(response);
+        $("#aDiv1").empty();
         var bookDiv = $("<div>");
         bookDiv.append("<h4>" + response.items[0].volumeInfo.title + "</h4>");
         bookDiv.append("<img style='width:100%' src='" + response.items[0].volumeInfo.imageLinks.thumbnail + "'>")
@@ -41,6 +43,7 @@ var callOMDB = function(searchTerm) {
         method: "GET"
     }).then(function(response) {
         console.log(response);
+        $("#aDiv2").empty();
         var movieDiv = $("<div>");
         movieDiv.append("<h4>" + response.Title + "</h4>");
         movieDiv.append("<img style='width:100%' src='" + response.Poster + "'>");
