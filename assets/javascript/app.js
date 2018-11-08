@@ -78,16 +78,19 @@ var config = {
     storageBucket: "gitgangproject.appspot.com",
     messagingSenderId: "386712509161"
   };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
+var database = firebase.database();
 
 window.onload = function() {
     $("#searchButton").on("click", function() {
+        event.preventDefault();
         var searchTerm = $("#searchInput").val().trim();
         console.log("hi")
         callEdamam(searchTerm);
         callGoogleBooks(searchTerm);
         callOMDB(searchTerm);
         var submission = {termSearched: searchTerm};
+
         //Check searchTerm against an array of old searches. If it's a new search, push the searchTerm into the database.
         if(oldSearches.includes(searchTerm)===false) {
             database.ref("/recentlySearched").push(submission);
@@ -99,6 +102,11 @@ window.onload = function() {
         $("#recentlySearched").append("<button type='button' class='btn btn-outline-light recentlySearchedButton' data-toggle='button' aria-pressed='false' autocomplete='off'>"+snapshot.val().termSearched+"</button>");
         //Push all the old searches from Firebase into the oldSearches array (to be check against during a search).
         oldSearches.push(snapshot.val().termSearched);
+    });
+
+    //Renders buttons based on recentlySearch data
+    database.ref("/recentlySearched").on("child_added", function(snapshot){
+    $("#recentlySearched").append("<button type='button' class='btn btn-outline-light recentlySearchedButton' data-toggle='button' aria-pressed='false' autocomplete='off'>"+snapshot.val().termSearched+"</button>");
     });
 
     $("#resetButton").on("click", function() {
