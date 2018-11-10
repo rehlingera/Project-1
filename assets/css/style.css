@@ -1,0 +1,37 @@
+body {
+    background-color: #45497D!important;
+    font-family: 'Abel', sans-serif!important;
+}
+
+.optionsDiv {
+    width:100%!important;
+}
+
+h1 {
+    color: white!important;
+    font-size: 60px!important;
+    
+}
+
+
+.activitiesDiv {
+    color:white;
+}
+
+.card{
+    background-color:#C0C4FF!important;
+    border-color:#C0C4FF!important;
+    height: auto!important;
+}
+
+.form{
+    color:white;
+}
+
+.recentlySearchedButton {
+    margin: 3px;
+}
+
+.front {
+    width: 95%!important;
+}

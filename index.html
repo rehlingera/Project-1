@@ -1,24 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="assets/javascript/app.js"></script>
+    <meta charset="UTF-8">
+    <title>boreDOM</title>
+    <!--External CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    
 </head>
+
 <body>
+
+    <!--Body-->
     <div class="container">
-        <div class="row">
-            <div class="col-md-11">
-                &nbsp;
+            <!--Header-->
+            <div class="row">
+                <div class="col-md-4 offset-9">
+                    <h1>boreDOM</h1>
+                </div>
             </div>
-            <div class="col-md-1">
-                
+            
+            <!--Search Input-->
+            <div class="form">
+                <center><label for="searchInput">What're you interested in?</label></center>
+                <input class="form-control" id="searchInput" type="text">
             </div>
-        </div>
+            <br>
+            <!--Search Button-->
+            <div class="row">
+                <div class="col-md-4 offset-4">
+                    <center><button type="button" id="searchButton" class="btn btn-outline-light" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        Search
+                    </button><button type="button" id="resetButton" class="btn btn-outline-light" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        Reset
+                    </button
+                </center>
+                </div>
+            </div>
+            
+            <!--Recently Searched-->
+            <div class="row">
+                <div class="col-md-12" id="recentlySearched">
+
+                </div>
+            </div>
+            <br>
+            <!--Activities-->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src='assets/images/baseline_replay_black_18dp.png' id='bookRefresh' style='width:10%; margin:0% 45% 0% 45%'>
+                </div>
+                <div class="col-md-4">
+                    <img src='assets/images/baseline_replay_black_18dp.png' id='movieRefresh' style='width:10%; margin:0% 45% 0% 45%'>
+                </div>
+                <div class="col-md-4">
+                    <img src='assets/images/baseline_replay_black_18dp.png' id='recipeRefresh' style='width:10%; margin:0% 45% 0% 45%'>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 activitiesDiv" id="bookCard">
+                    <div class="card shadow p-3 mb-5 rounded front">
+                        <div id="aDiv1">
+                            <center><img src="assets/images/outline_import_contacts_black_18dp.png" alt="books"></center>
+                        </div>
+                    </div>
+                    <div class="card shadow p-3 mb-5 rounded back">
+                        <div id="aDiv1b">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 activitiesDiv" id="movieCard">
+                    <div class="card shadow p-3 mb-5 rounded front">
+                        <div id="aDiv2">
+                            <center><img src="assets/images/outline_theaters_black_18dp.png" alt="movies"></center>
+                        </div>
+                    </div>
+                    <div class="card shadow p-3 mb-5 rounded back">
+                        <div id="aDiv2b">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 activitiesDiv" id="recipeCard">
+                    <div class="card shadow p-3 mb-5 rounded front">
+                        <div id="aDiv3">
+                            <center><img src="assets/images/outline_restaurant_black_18dp.png" alt="cooking"></center>
+                        </div>
+                    </div>
+                    <div class="card shadow p-3 mb-5 rounded back">
+                        <div id="aDiv3b">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+         
+
+
     </div>
 </body>
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+<!--FireBase-->
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<!-- External Script -->
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 </html>
