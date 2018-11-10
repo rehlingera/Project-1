@@ -3,7 +3,7 @@ var callEdamam = function(searchTerm) {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         console.log(response);
         $("#aDiv3").empty();
         $("#aDiv3b").empty();
@@ -35,7 +35,7 @@ var callGoogleBooks = function(searchTerm) {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         console.log(response);
         n = Math.floor((Math.random() * response.items.length))
         $("#aDiv1").empty();
@@ -61,7 +61,7 @@ var callOMDB = function(searchTerm) {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         console.log(response);
         $("#aDiv2").empty();
         $("#aDiv2b").empty();
@@ -101,12 +101,12 @@ var config = {
     projectId: "gitgangproject",
     storageBucket: "gitgangproject.appspot.com",
     messagingSenderId: "386712509161"
-  };
+};
 firebase.initializeApp(config);
 var database = firebase.database();
 
-window.onload = function() {
-    $("#searchButton").on("click", function() {
+window.onload = function () {
+    $("#searchButton").on("click", function () {
         event.preventDefault();
         var searchTerm = $("#searchInput").val().trim();
         console.log("hi")
