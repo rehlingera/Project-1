@@ -67,7 +67,7 @@ var callOMDB = function(searchTerm) {
         $("#aDiv2b").empty();
         n = Math.floor((Math.random() * response.Search.length))
         var drillDown = response.Search[n].imdbID;
-        var drillDownURL = "http://www.omdbapi.com/?apikey=9addc862&i=" + drillDown + "&plot=full";
+        var drillDownURL = "https://www.omdbapi.com/?apikey=9addc862&i=" + drillDown + "&plot=full";
         $.ajax({
             url: drillDownURL,
             method: "GET"
