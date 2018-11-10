@@ -1,0 +1,54 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script>
+        //* Loads image *//
+        function loadImage() {
+            var preload = new createjs.LoadQueue();
+            preload.addEventListener("fileload", handleFileComplete);
+            preload.loadFile("/assets/images/instruction.png");
+        }
+    
+        function handleFileComplete(event) {
+            document.getElementById("image-target").appendChild(event.result);
+        }
+        
+        //* Loads text *//
+        function loadText() {
+        var preload = new createjs.LoadQueue();
+        preload.addEventListener("fileload", handleFileComplete);
+        preload.loadFile("/assets/images/smallText.txt");
+        }
+    
+        function handleFileComplete(event) {
+            document.getElementById("text-target").appendChild(event.result);
+        }
+    </script>
+</head>
+<body>
+    <!-- INSERT AFTER boreDOM header -->
+    <div class="row justify-content-center">
+        <button onclick="loadImage();" class="load-image">Load Image</button>
+    </div>
+    <br>
+    <div class="row justify-content-center" id="image-target">
+        <img>
+    </div>
+    <br>
+
+    <div class="row justify-content-center">
+        <button onclick="loadText();" class="load-image">Load Text</button>
+    </div>
+    <br>
+    <div class="row justify-content-center" id="text-target">
+        <img>
+    </div>
+    <br>
+</body>
+</html>
