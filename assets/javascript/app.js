@@ -57,7 +57,7 @@ var callGoogleBooks = function(searchTerm) {
 };
 
 var callOMDB = function(searchTerm) {
-    var queryURL = "http://www.omdbapi.com/?apikey=9addc862&s=" + searchTerm + "&plot=full";
+    var queryURL = "https://www.omdbapi.com/?apikey=9addc862&s=" + searchTerm + "&plot=full";
     $.ajax({
         url: queryURL,
         method: "GET"
