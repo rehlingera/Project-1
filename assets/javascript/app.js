@@ -26,6 +26,9 @@ var callEdamam = function(searchTerm) {
             recipeDivBack.append("<p>" + response.hits[n].recipe.digest[i].label + ": " + (response.hits[n].recipe.digest[i].total/response.hits[n].recipe.yield).toFixed(0) + response.hits[n].recipe.digest[i].unit + "</p>");
         };
         $("#aDiv3b").append(recipeDivBack);
+        $("#bookRefresh").show();
+        $("#movieRefresh").show();
+        $("#recipeRefresh").show();
 
     });
 };
@@ -53,6 +56,9 @@ var callGoogleBooks = function(searchTerm) {
         bookDivBack.append("<h4>" + response.items[n].volumeInfo.title + "</h4>");
         bookDivBack.append("<p>" + response.items[n].volumeInfo.description + "</p>");
         $("#aDiv1b").append(bookDivBack);
+        $("#bookRefresh").show();
+        $("#movieRefresh").show();
+        $("#recipeRefresh").show();
     });
 };
 
@@ -89,6 +95,9 @@ var callOMDB = function(searchTerm) {
         movieDivBack.append("<h4>" + response.Title + "</h4>");
         movieDivBack.append("<p>" + response.Plot + "</p>");
         $("#aDiv2b").append(movieDivBack);
+        $("#bookRefresh").show();
+        $("#movieRefresh").show();
+        $("#recipeRefresh").show();
         });
     });
 };
@@ -135,6 +144,9 @@ window.onload = function () {
         callGoogleBooks(searchTerm);
         callOMDB(searchTerm);
         var submission = { termSearched: searchTerm };
+        $("#bookRefresh").show();
+        $("#movieRefresh").show();
+        $("#recipeRefresh").show();
         //Check searchTerm against an array of old searches. If it's a new search, push the searchTerm into the database.
         if(oldSearches.includes(searchTerm)===false) {
             database.ref("/recentlySearched").push(submission);
@@ -148,11 +160,18 @@ window.onload = function () {
         $("#aDiv2").append("<center><img src='assets/images/outline_theaters_black_18dp.png' alt='movies'></center></div>");
         $("#aDiv3").empty();
         $("#aDiv3").append("<center><img src='assets/images/outline_restaurant_black_18dp.png' alt='cooking'></center></div>");
+        $("#bookRefresh").hide();
+        $("#movieRefresh").hide();
+        $("#recipeRefresh").hide();
     });
 
     $("#bookCard").flip();
     $("#movieCard").flip();
     $("#recipeCard").flip();
+
+    $("#bookRefresh").hide();
+    $("#movieRefresh").hide();
+    $("#recipeRefresh").hide();
 
     $(document).on("click","#bookRefresh", function (){
         var searchTerm = $("#searchInput").val().trim();
